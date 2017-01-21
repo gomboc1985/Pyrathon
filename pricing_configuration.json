@@ -1,0 +1,35 @@
+{
+	"PlainVanilla":
+		{
+			"strike":		"",
+			"model":
+			{
+				"Gamma": 		"grid_eval", 
+				"LogNormal": 	"grid_eval", 
+				"Uniform": 		"grid_eval"
+			}
+		},
+	
+	"Digital": 
+		{
+			"strike":		"",
+			"model":
+			{
+				"Gamma": 		"exact_eval", 
+				"LogNormal": 	"exact_eval", 
+				"Uniform": 		"grid_eval"
+			}
+		},
+	
+	"Barrier": 
+		{
+			"strike":		"",
+			"barrier":		"",
+			"model":
+			{
+				"Gamma": 		"grid_eval", 
+				"LogNormal": 	"grid_eval", 
+				"Uniform": 		"grid_eval"
+			}
+		}
+}

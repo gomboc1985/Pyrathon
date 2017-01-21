@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DerivativeCatalog>
+
+<!-- EXAMPLES OF VALID PAYOFF -->
+
+	<Payoff type="PlainVanillaCall">
+	<!-- Example 1: a simple call payoff-->
+		<dealID>1</dealID>
+		<strike>5</strike>
+		<model distribution="Uniform">
+			<location>5</location>
+			<scale>2</scale>
+		</model>
+	</Payoff>
+	
+	<Payoff type="DigitalCall">
+	<!-- Example 2: another type of call with different parameters-->
+		<dealID>2</dealID>
+		<strike>7</strike>
+		<model distribution="LogNormal">
+			<location>5</location>
+			<scale>2</scale>
+		</model>
+	</Payoff>
+	
+	<Payoff type="PlainVanillaPut">
+	<!-- Example 3: a put payoff with same parameters as the Example 1-->
+		<dealID>3</dealID>
+		<strike>5</strike>
+		<model distribution="Gamma">
+			<location>5</location>
+			<scale>2</scale>
+		</model>
+	</Payoff>
+	
+	<Payoff type="BarrierCall">
+	<!-- Example 4: a more complicated payoff-->
+		<dealID>4</dealID>
+		<strike>5</strike>
+		<barrier>7</barrier>
+		<model distribution="LogNormal">
+			<location>5</location>
+			<scale>2</scale>
+		</model>
+	</Payoff>
+	
+	<Payoff type="AsianCall">
+	<!-- Example 5: a payoff too complicated for us-->
+		<dealID>5</dealID>
+		<strike>5</strike>
+		<fixings>
+			<t1>0.5</t1>
+			<t1>1</t1>
+			<t1>1.5</t1>
+			<t1>2</t1>
+		</fixings>
+		<model distribution="Heston">
+			<location>6</location>
+			<scale>2</scale>
+			<rho>-0.75</rho>
+			<meanrev>0.3</meanrev>
+		</model>
+	</Payoff>
+	
+	
+	
+	<!-- EXAMPLES OF INVALID PAYOFF -->
+	
+	<Payoff type="PlainVanilla">
+	<!-- Example 6: strike is missing-->
+		<dealID>7</dealID>
+		<model distribution="LogNormal">
+			<location>5</location>
+			<scale>2</scale>
+		</model>
+	</Payoff>
+	
+	<Payoff type="PlainVanillaPut">
+	<!-- Example 7: invalid model type-->
+		<dealID>8</dealID>
+		<strike>7</strike>
+		<model distribution="Exponential">
+			<lambda>5</lambda>
+		</model>
+	</Payoff>
+	
+	<Payoff type="BarrierCall">
+	<!-- Example 8: one of the parameter of the model is missing-->
+		<dealID>9</dealID>
+		<strike>5</strike>
+		<barrier>7</barrier>
+		<model distribution="LogNormal">
+			<location>5</location>
+		</model>
+	</Payoff>
+	
+	
+	
+	<!-- SOME PRICING SETTINGS -->
+	
+	<PricingSettings>
+	<!-- 9:  Pricing settings for numerical evaluation-->
+		<x0>0.01</x0>
+		<xMAX>100</xMAX>
+		<xStep>0.5</xStep>
+	</PricingSettings>
+	
+	
+	
+	<!-- SINCE 10 IS A NICE NUMBER I ADD SOME SPAM -->
+	
+	<Counterparty>
+		<CompanyName>Lehman Brothers</CompanyName>
+		<Manager>
+			<name>Jordan Belfort</name>
+		</Manager>
+	</Counterparty>
+	
+	
+</DerivativeCatalog>
